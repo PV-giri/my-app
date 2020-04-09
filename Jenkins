@@ -1,0 +1,10 @@
+node{
+  stage('SCM checkout'){    
+   git'https://github.com/nishanthchowdary/game-of-life.git'      
+  }
+  stage('Compile-package'){
+    // Get maven home path
+    def mvnHome = tool name: 'mvn', type: 'maven'
+    sh "${mvnHome}/bin/mvn package"
+          }
+  }
